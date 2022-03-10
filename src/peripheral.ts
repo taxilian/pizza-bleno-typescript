@@ -42,6 +42,7 @@ bleno.on('stateChange', function(state) {
     });
   }
   else {
+    console.log("Stop advertising");
     bleno.stopAdvertising();
   }
 });
@@ -60,3 +61,16 @@ bleno.on('advertisingStart', function(err) {
     console.warn("Error advertising: ", err);
   }
 });
+
+bleno.on("accept", address => console.log("Accept", address));
+bleno.on("addressChange", address => console.log("addressChange", address));
+bleno.on("advertisingStart", err => console.log("Advertising... ", err));
+bleno.on("advertisingStartError", err => console.log("Advertising start error", err));
+bleno.on("advertisingStop", () => console.log("Advertising Stop"));
+bleno.on("disconnect", address => console.log(`Disconnect from ${address}`));
+bleno.on("mtuChange", mtu => console.log("New MTU", mtu));
+bleno.on('platform', platform => console.log(`Platform: ${platform}`));
+bleno.on("rssiUpdate", rssi => console.log(`RSSI: ${rssi}`) );
+bleno.on("servicesSet", err => console.log(`Services set`, err) );
+bleno.on("servicesSetError", err => console.log(`Services set err:`, err) );
+bleno.on("stateChange", newState => console.log("State Change", newState));
