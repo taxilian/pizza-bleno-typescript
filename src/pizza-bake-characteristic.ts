@@ -18,6 +18,7 @@ export class PizzaBakeCharacteristic extends bleno.Characteristic {
   }
 
   onWriteRequest(data: Buffer, offset: number, withoutResponse: boolean, callback: (result: number) => void) {
+    console.log("Bake write request");
     if (offset) {
       callback(this.RESULT_ATTR_NOT_LONG);
     }

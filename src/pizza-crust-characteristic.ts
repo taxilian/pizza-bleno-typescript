@@ -17,6 +17,7 @@ export class PizzaCrustCharacteristic extends bleno.Characteristic {
   }
   
   onWriteRequest(data: Buffer, offset: number, withoutResponse: boolean, callback: (result: number) => void) {
+    console.log("Crust write request");
     if (offset) {
       callback(this.RESULT_ATTR_NOT_LONG);
     }
@@ -41,6 +42,7 @@ export class PizzaCrustCharacteristic extends bleno.Characteristic {
   }
 
   onReadRequest(offset: number, callback: (result: number, data?: Buffer) => void) {
+    console.log("Crust read request");
     if (offset) {
       callback(this.RESULT_ATTR_NOT_LONG);
     }
