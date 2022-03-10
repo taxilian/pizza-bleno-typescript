@@ -1,8 +1,8 @@
-//
-// Require bleno peripheral library.
-// https://github.com/sandeepmistry/bleno
-//
-import bleno from '@abandonware/bleno';
+
+// Must be set before bleno is included the first time
+import os from 'os';
+const name = `PizzaSquat-${os.hostname()}`;
+process.env.BLENO_DEVICE_NAME = name;
 
 //
 // Pizza
@@ -20,10 +20,14 @@ import {PizzaService} from './pizza-service';
 //
 // A name to advertise our Pizza Service.
 //
-const name = 'RichardLovesPi';
 const pizzaService = new PizzaService(new Pizza());
 
-process.env.BLENO_DEVICE_NAME = name;
+
+//
+// Require bleno peripheral library.
+// https://github.com/sandeepmistry/bleno
+//
+import bleno from '@abandonware/bleno';
 
 //
 // Wait until the BLE radio powers on before attempting to advertise.
