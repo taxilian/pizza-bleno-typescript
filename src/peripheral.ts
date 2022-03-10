@@ -23,6 +23,8 @@ import {PizzaService} from './pizza-service';
 const name = 'RichardLovesPi';
 const pizzaService = new PizzaService(new Pizza());
 
+process.env.BLENO_DEVICE_NAME = name;
+
 //
 // Wait until the BLE radio powers on before attempting to advertise.
 // If you don't have a BLE radio, then it will never power on!
